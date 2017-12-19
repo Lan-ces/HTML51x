@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Tutorial Blog</title>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Polyfill support of details element in Edge and older browsers -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/details-element-polyfill.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>HTML 5 Tutorial Blog</h1>
+        <figure>
+            <img src="img/HTML5_Logo_512.png" alt="HTML5 logo in png format." width="100" height="100">
+            <figcaption>This is how the HTML5 logo looks in PNG format. This is also an example of using the figure and ficaption tags.</figcaption>
+        </figure>
+        <nav>
+            <h4>Navigation Bar</h4>
+            <ul>
+                <li>Nav1</li>
+                <li>Nav2</li>
+                <li>Nav3</li>
+                <li>Nav4</li>
+                <li>Nav5</li>
+                <li>Nav6</li>
+            </ul>
+        </nav>
+    </header>
+    <div id="body">
+        <main>
+            <section>
+                <h2>HTML5 Basics</h2>
+                <article>
+                    <header>
+                        <h3>About This Blog</h3>
+                        <time datetime="2017-12-17">December 17, 2017</time>
+                    </header>
+                    <p>This site was created based on the edX course HTML5 Coding Essentials and Best Practices by W3C.</p>
+                    <p>The course did not have a main project that you built on throughout it so I created my own. I decided to summarize the course contents in this format while using the concepts presented in the course to create it.</p>
+                    <p>There is some cool optional projects in the course which are listed below.</p>
+                    <p class="live-source-links">Project Info<a href="#" target="_blank">Live Page</a><a href="#" target="_blank">Source Page</a></p>
+                    <p class="live-source-links">Project Info<a href="#" target="_blank">Live Page</a><a href="#" target="_blank">Source Page</a></p>
+                    <p class="live-source-links">Project Info<a href="#" target="_blank">Live Page</a><a href="#" target="_blank">Source Page</a></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Greater Simplicity</h3>
+                        <time datetime="2017-12-16">December 16, 2017</time>
+                    </header>
+                    <p>HTML5 has a simpler DOCTYPE definition and many attributes and end tags are optional. It also has several new structural elements. A minimal HTML5 document is shown below.</p>
+                    <div class="code" w3-include-html="snippet/minimal-html.html"></div>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>New Structural Elements</h3>
+                        <time datetime="2017-12-17">December 17, 2017</time>
+                    </header>
+                    <p>HTML5 has many new structural elements. These elements are &lt;header&gt;, &lt;footer&gt;, &lt;nav&gt;, &lt;article&gt;, &lt;section&gt;, &lt;time&gt;, &lt;aside&gt;, &lt;figure&gt;, &lt;figcaption&gt; and &lt;main&gt;.</p>
+                    <p>You can have multiple elements of most of these and can nest most of them inside each other. You can only have one main. Below is a code tree that shows the basic structure of this site. As you can see, there is a header and footer in the body as well as each article. There are several sections and each section has several articles. It only has one aside but you could have one for each article or section if it made sense. Each section or article can have its own nav etc.</p>
+                    <div class="code" w3-include-html="snippet/structure.html"></div>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Sectioning Elements and Headings</h3>
+                        <time datetime="2017-12-17">December 17, 2017</time>
+                    </header>
+                    <p>Headings &lt;h1&gt; to &lt;h6&gt; implicitly section a document while the new tags section, article, nav and aside explicitly section a document.</p>
+                    <p>The HTML5 specification says that "each sectioning element potentially has a heading and has also an outline associated".</p>
+                    <p>There are many browser extensions that will show an outline of your document as seen in the image below. Just search for HTML5 outliner.</p>
+                    <div class="example">
+                        <img src="img/outliner.jpg" alt="Image of outliner extension output.">
+                    </div>
+                    <p>The image is for this page as it was when this was written. There are some duplicate section and article names as temporary placeholders. More important to note is is the "Untitled" ASIDE. It shows that way because the aside did not have a &lt;h1&gt;..&lt;h6&gt; tag at the time and thus needed one added.</p>
+                    <p>You may notice that the nav bar has a title and that it is visible. Sometimes you will not want a nav to have a visible heading and it is recommended to position it off screen rather that using display: none or visibility: hidden. This is a better option for assistive technologies. See <a href="https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/" target="_blank">this</a> article.</a></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>&lt;details&gt; and &lt;summary&gt; Elements</h3>
+                        <time datetime="2017-12-17">December 17, 2017</time>
+                    </header>
+                    <p>Accordian content is not a new thing but the &lt;details&gt; and &lt;summary&gt; elements make it easy. Here is an example that only contains text but it could contain a form, images and more.</p>
+                    <details>
+                        <summary>This is the summary.</summary>
+                        <p>This is the additional content.</p>
+                    </details>
+                    <p>Here is the code that created the above accordian.</p>
+                    <div class="code" w3-include-html="snippet/details-summary.html"></div>
+                    <p>As of this writing Edge and some older browsers do not support this and here is one of the many polyfills you can add to the head of your document to add support.</p>
+                    <div class="code">&lt;script src="js/details-element-polyfill.js"&gt;&lt;/script&gt;</div>
+                    <p>Check out <a href="http://caniuse.com/" target="_blank">http://caniuse.com/</a>, <a href="http://modernizr.com/" target="_blank">http://modernizr.com/</a> and <a href="http://shouldiprefix.com/" target="_blank">http://shouldiprefix.com/</a> for more information on supporting newer concepts across browsers.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>&lt;time&gt; and &lt;mark&gt; Elements</h3>
+                        <time datetime="2017-12-17">December 17, 2017</time>
+                    </header>
+                    <p>The &lt;time&gt; element is useful for marking time or durarion in a document. It has a human readable part and a machine readable part. The dates on these articles use it. Check it out on <a href="https://www.w3schools.com/tags/tag_time.asp" target="_blank">w3schools</a>.</p>
+                    <p>The &lt;mark&gt; element <mark>highlights</mark> part of your document like a highlighter and can be styled with CSS. Check it out on <a href="https://www.w3schools.com/tags/tag_mark.asp" target="_blank">w3schools</a>.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>download and translate Attributes</h3>
+                        <time datetime="2017-12-17">December 17, 2017</time>
+                    </header>
+                    <p>The download attribute can be used to force a link to be downloaded rather than displayed. Example below.</p>
+                    <a href="img/HTML5_Logo_512.png" download="html5logo.png">Download HTML5 Logo</a>
+                    <p>Here is the code.</p>
+                    <div class="code">&lt;a href="img/HTML5_Logo_512.png" download="html5logo.png"&gt;Download HTML5 Logo&lt;/a&gt;</div>
+                    <p>The translate attribute can be set to yes or no and can be used so that translation tools do not translate certain parts of your document. One example is that it would not make sense to translate code blocks like on this page.</p>
+                    <p>I could manually add this attribute to all code blocks but I figured it would be easier and more interesting to use javascript. Here is the code.</p>
+                    <div class="code" w3-include-html="snippet/translate-js.html"></div>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Microdata</h3>
+                        <time datetime="2017-12-17">December 17, 2017</time>
+                    </header>
+                    <p>Adding microdata to web pages helps search engines to better understand the pages' content, their topics, etc. The main purpose of microdata is Search Engine Optimization although it can be used for other purposes as well.</p>
+                    <p>These articles are supposed to be brief introductions and not full tutorials. Hopefully the articles will give you a taste and make you want to search out more information. A proper covering of microdata would be way too long so I present you <a href="http://diveinto.html5doctor.com/extensibility.html" target="_blank">this</a> page as one option.</p>
+                    <p>At the time of writing this I have not added any microdata to this page.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+            </section>
+            <section>
+                <h2>HTML5 Multimedia</h2>
+                <article>
+                    <header>
+                        <h3>The &lt;video&gt; Element</h3>
+                        <time datetime="2017-12-18">December 18, 2017</time>
+                    </header>
+                    <p>The &lt;video&gt; element allows you to embed video in your page without complex code or Flash. The video below is the first minute of <a href="https://peach.blender.org/" target="_blank">Big Buck Bunny</a> used under the <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0</a> license.</p>
+                    <video width="640" height="360" controls poster="img/big-buck-bunny.png" preload="none"> 
+                        <source src=video/big_buck_bunny.webm type=video/webm /> 
+                        <source src=video/big_buck_bunny.ogv type=video/ogg /> 
+                        <source src=video/big_buck_bunny.mp4 type=video/mp4 />
+                        Your browser does not support the &lt;video&gt; element.
+                    </video>
+                    <p>Sample code. Providing multiple sources is good as some browsers only support certain formats. The poster is an optional image to display when loaded. The controls attribute is to display controls to play, stop, etc.</p>
+                    <p>The preload attribute can be set to none, metadata or auto. It is only valid if the autoplay attribute is not used. I used none here so it did not delay loading of other items. Notice the time does not show a duration.</p>
+                    <div class="code" w3-include-html="snippet/video.html"></div>
+                    <p>Note: You cannot directly embed videos from most social web sites such as YouTube, Dailymotion etc. They have different embed scripts.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>The &lt;audio&gt; Element</h3>
+                        <time datetime="2017-12-18">December 18, 2017</time>
+                    </header>
+                    <p>The &lt;audio&gt; element is similar to the &lt;video&gt; element without the video related attributes like poster.</p>
+                    <audio controls="controls" preload="metadata" loop>
+                        <source src="audio/horse.ogg" type="audio/ogg" />
+                        <source src="audio/horse.mp3" type="audio/mp3" />
+                        <p>Your browser does not support the audio element.</p>
+                        <p>Download the audio/video in <a href="audio/horse.ogg">OGG</a> or <a href="audio/horse.mp3">MP3</a> format.</p>
+                    </audio>
+                    <p>The above element was done using the below code. Notice how it is very similar. The controls attribute was given a value in this one but it will work the same with any value or no value. Also note that there are download links provided in case the &lt;audio&gt; element is not supported.</p>
+                    <p>In this example I used the metadata value for preload thus it knows the duraion. I also used the loop attribute so the audio continuously loops when playing.</p>
+                    <div class="code" w3-include-html="snippet/audio.html"></div>
+                    <p>You can style the &lt;video&gt; and &lt;audio&gt; elements using CSS and JS. Here are some links to some examples.</p>
+                    <p><a href="https://jsbin.com/zoquru/2/edit?html,css,output" target="_blank">The horse audio above with image and border.</a></p>
+                    <p><a href="https://jsbin.com/gezudoy/edit?html,css,js,console,output" target="_blank">Full width, resizable, borderless video.</a></p>
+                    <p><a href="https://jsbin.com/tahipaw/2/edit?html,output" target="_blank">Full screen video with CSS.</a></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Control &lt;audio&gt; and &lt;video&gt; Elements from JS</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p>You can control many aspects of &lt;audio&gt; and &lt;video&gt; elements from Javascript. First you have to either select an element from the DOM or create one.</p>
+                    <p>Once you have an element stored in a variable, let's say vid, you can manipulate its methods like play(), pause() etc. (eg. vid.play();)</p>
+                    <p>You can manipulate its properties such as source, duration, current position and volume. (eg. vid.controls = true;)</p>
+                    <p>You can respond to events using callbacks such as when it starts or ends or gets paused.</p>
+                    <p>Check out <a href="https://www.w3.org/2010/05/video/mediaevents.html" target="_blank">this</a> page for a demonstration of many of these.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>A Custom Video Player Written by Me</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p>Information</p>
+                    <p><a href="#" target="_blank">Link to Live Page</a></p>
+                    <p><a href="#" target="_blank">Link to Source Page</a></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Title</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p>Information</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Title</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p>Information</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+            </section>
+            <section>
+                <h2>HTML5 Graphics</h2>
+                <article>
+                    <header>
+                        <h3>Article 1</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 2</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 3</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+            </section>
+            <section>
+                <h2>HTML5 Animations</h2>
+                <article>
+                    <header>
+                        <h3>Article 1</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 2</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 3</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+            </section>
+            <section>
+                <h2>HTML5 Forms</h2>
+                <article>
+                    <header>
+                        <h3>Article 1</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 2</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 3</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+            </section>
+            <section>
+                <h2>HTML5 Basic APIs</h2>
+                <article>
+                    <header>
+                        <h3>Article 1</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 2</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 3</h3>
+                        <time datetime="2017-12-18">December 19, 2017</time>
+                    </header>
+                    <p></p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+            </section>
+        </main>
+        <aside>
+            <h2>Aside content</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla, est sit amet blandit eleifend, ligula diam sodales enim, in consequat nulla leo vel quam. Aliquam maximus quam ante, sit amet fringilla orci varius nec. Nam bibendum dui id ullamcorper posuere. Vestibulum lobortis erat ut nibh malesuada, nec consequat mi porta. In eget massa risus. Aliquam egestas lorem nec sodales venenatis. Pellentesque accumsan, quam et maximus efficitur, eros mi porta nisi, sed bibendum felis turpis sed massa. In semper nec felis ut pharetra. Nulla lacus lacus, malesuada nec mi tincidunt, condimentum facilisis tortor. In condimentum tortor ut est molestie sodales.</p>
+            <p>Vestibulum vel tempor erat, sit amet posuere libero. Morbi at pharetra libero. Aliquam imperdiet quam quis ex congue ornare. In a massa sem. Mauris vel lacinia metus. Donec eu mauris quis metus faucibus finibus nec vitae tellus. Suspendisse ut mi consectetur, maximus ligula sit amet, mollis augue. Nunc mollis id nulla eu commodo. Duis dolor turpis, sodales eget pellentesque id, congue eu arcu. Duis velit massa, sollicitudin id vulputate vel, faucibus id justo.</p>
+            <p>Fusce facilisis libero sit amet condimentum euismod. Maecenas tortor turpis, pharetra quis vehicula id, dignissim id magna. Suspendisse vitae purus consequat, blandit sem id, suscipit erat. Nunc pretium consequat leo eu porta. Nulla porttitor, dui sit amet hendrerit rutrum, diam dolor mattis augue, ut posuere metus erat ac eros. Morbi vitae pellentesque augue. Nullam ligula diam, pharetra pulvinar blandit sed, euismod id diam.</p>
+            <p>Sed non cursus elit, in fermentum dui. Sed convallis ultrices urna, quis pulvinar massa eleifend et. Sed euismod accumsan leo at tempor. Aenean molestie posuere mattis. Aenean ultrices ipsum a lectus iaculis, nec lacinia sem gravida. Aenean eu eros tellus. Morbi sed lectus est. Aenean imperdiet rutrum ullamcorper. Donec eget volutpat ipsum.</p>
+            <p>Morbi consectetur velit eget ullamcorper finibus. Suspendisse quis ex vel metus suscipit faucibus eget ut magna. Ut dignissim malesuada nulla, at imperdiet odio molestie a. Fusce tincidunt ante semper lectus rutrum, convallis pellentesque lorem auctor. Nam nec odio nisl. Duis vehicula eros pulvinar lectus tristique, a congue magna ornare. Phasellus euismod arcu magna, ut dignissim nibh ullamcorper et. Duis eu lorem imperdiet, fermentum erat ut, varius dui.</p>
+        </aside>
+    </div>
+    <footer id="body-footer">Site design by Michael Smith</footer>
+</body>
+</html>

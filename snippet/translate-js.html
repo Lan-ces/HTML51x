@@ -1,0 +1,13 @@
+window.onload = function() {
+    document.querySelectorAll(".code").forEach(function(e) {e.setAttribute("translate","no")});
+};
+
+Alternates:
+
+Old Way:
+    document.getElementsByClassName("code").forEach(function(e) {e.setAttribute("translate","no")});
+
+JQuery:
+$(document).ready(function() {
+    $(".code").attr("translate","no");
+});
