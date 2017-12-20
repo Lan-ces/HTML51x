@@ -175,7 +175,7 @@
                 <article>
                     <header>
                         <h3>Control &lt;audio&gt; and &lt;video&gt; Elements from JS</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-19">December 19, 2017</time>
                     </header>
                     <p>You can control many aspects of &lt;audio&gt; and &lt;video&gt; elements from Javascript. First you have to either select an element from the DOM or create one.</p>
                     <p>Once you have an element stored in a variable, let's say vid, you can manipulate its methods like play(), pause() etc. (eg. vid.play();)</p>
@@ -187,7 +187,7 @@
                 <article>
                     <header>
                         <h3>A Custom Video Player Written by Me</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-19">December 19, 2017</time>
                     </header>
                     <p>Information</p>
                     <p><a href="#" target="_blank">Link to Live Page</a></p>
@@ -196,35 +196,73 @@
                 </article>
                 <article>
                     <header>
-                        <h3>Title</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <h3>The &lt;track&gt; Element</h3>
+                        <time datetime="2017-12-20">December 20, 2017</time>
                     </header>
-                    <p>Information</p>
+                    <p>The &lt;track&gt; element allows you to add captions, subtitles, descriptions and metadata to your videos. The WebVTT format is used for describing a track file.</p>
+                    <p>The &lt;track&gt; element has a kind attribute. The kind attribute can be subtitles, captions, descriptions, chapters or metadata. (eg. kind="subtitles")</p>
+                    <p>Another attribute is default which is used to select the default track if more than one is provided.</p>
+                    <p>The label attribute is what will be displayed to the user in the default HTML5 video player. (eg. label="English Subtitles")</p>
+                    <p>There is a srclang attribute to specify the langage. (eg. srlang="en")</p>
+                    <p>Here is an <a href="https://jsbin.com/dixeyak/2/edit?html,output" target="_blank">example</a>.</p>
+                    <p>Visit the <a href="https://www.w3schools.com/tags/tag_track.asp" target="_blank">w3schools page</a> for more information.</p>
+                    <p>Complete details on the VTT format are available <a href="https://w3c.github.io/webvtt/" target="_blank">here</a>.</p>
+                    <p>Check out <a href="https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video" target="_blank">this link</a> to see how to manipulate track information with CSS and Javascript.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
                 <article>
                     <header>
-                        <h3>Title</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <h3>Karaoke Player Written by Me</h3>
+                        <time datetime="2017-12-20">December 20, 2017</time>
                     </header>
                     <p>Information</p>
+                    <p><a href="#" target="_blank">Link to Live Page</a></p>
+                    <p><a href="#" target="_blank">Link to Source Page</a></p>
                     <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Webcam, Microphone and the getUserMedia API</h3>
+                        <time datetime="2017-12-20">December 20, 2017</time>
+                    </header>
+                    <p>Typical usage is to set the src attribute of the &lt;video&gt; or &lt;audio&gt; element to the live stream.</p>
+                    <p>To get this stream you would use navigator.getUserMedia(params, onSuccess, onError)</p>
+                    <p>Here is an <a href="https://jsbin.com/nitijub/1/edit?html,output" target="_blank">example</a> of using the webcam.</p>
+                    <p>Here is an <a href="https://webaudiodemos.appspot.com/input/index.html" target="_blank">example</a> of real time audio processing of the microphone input.</p>                    <footer>Written by Michael Smith</footer>
                 </article>
             </section>
             <section>
                 <h2>HTML5 Graphics</h2>
                 <article>
                     <header>
-                        <h3>Article 1</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <h3>The &lt;canvas&gt; Element</h3>
+                        <time datetime="2017-12-20">December 20, 2017</time>
                     </header>
-                    <p></p>
+                    <p>The canvas can be used for drawing pixel based graphics for graphs, game graphics and other images on the fly.</p>
+                    <p>It supports drawing many shapes including lines, rectangles, ellipses, arcs, curves, text and images.</p>
+                    <p>The canvas can handle doing animations at 60 frames per second and has very good support in almost all major browsers.</p>
+                    <p>The canvas coordinate system uses (0, 0) as the top left corner like many others.</p>
+                    <p>Here is my canvas. I added a border around it for visualization purposes. It is 600 pixels wide and 300 pixels tall.</p>
+                    <canvas id="myCanvas" width="600" height="300">Canvas is disabled or not supported.</canvas>
+                    <p>Make sure the JS isn't called until you know the page is loaded using onload or similar. We store the canvas in a variable and then define a context for it.</p>
+                    <p>Then we draw some rectangles. The fillStyle determines the color of filled rectangles and the strokeStyle determines the color of the wireframe ones.</p>
+                    <p>Notice how the rectangles stack on top of each other in the order they are drawn, how you can see behind the wireframe ones and the second strokeRect uses the color previously set.</p>
+                    <p>We also have a clearRect which pokes a hole in the green rectangle.</p>
+                    <p>The drawMonster function just draws some rectangles the same way. Notice that when I draw it at (0, 0) it is not in the top left because of the translate before it.</p>
+                    <p>Also notice that the next translate is based on the new coordinate system of the first translate.</p>
+                    <p>The second time we draw the monster using the same call but it appears differently because of the transformations.</p>
+                    <p>Doing the translate, rotate and scale in a different order would have a different result. This is the order recommended most of the time.</p>
+                    <p>Notice the last rectangle is drawn in the same spot the second monster starts and it is purple because the last thing drawn on the monster is the mouth which is purple.</p>
+                    <div class="code" w3-include-html="snippet/canvas1.html"></div>
+                    <p>When doing transformations or calling functions that will change the context it is a good idea to save the current context so it can be restored.</p>
+                    <p>This is done using ctx.save(); and ctx.restore(); and is good practice to save at the start of a function and restore at the end of a function.</p>
+                    <p>Note: These rectangles as well as text and images are drawn in "immediate mode". "Path mode" or "buffered mode" is used for lines, arcs, curves and can also be used for rectangles. We'll see that later.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
                 <article>
                     <header>
-                        <h3>Article 2</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <h3>More About the Canvas</h3>
+                        <time datetime="2017-12-20">December 20, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>

@@ -87,3 +87,6 @@ article p {
     padding-top: 16px;
     padding-bottom: 16px;
 }
+#myCanvas {
+    border: 1px solid black;
+}

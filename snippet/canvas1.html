@@ -1,0 +1,24 @@
+&lt;!--The HTML part--&gt;
+&lt;canvas id="myCanvas" width="600" height="300"&gt;Canvas is disabled or not supported.&lt;/canvas&gt;
+
+//The Javascript part
+//Let's play with the canvas.
+var canvas=document.querySelector("#myCanvas");
+var ctx=canvas.getContext('2d');
+//Let's draw some shapes.
+ctx.fillStyle='red';
+ctx.fillRect(10, 10, 50, 100);
+ctx.strokeStyle='blue';
+ctx.strokeRect(40, 40, 100, 50);
+ctx.fillStyle='green';
+ctx.fillRect(30, 70, 80, 50);
+ctx.strokeRect(50, 50, 100, 100);
+ctx.clearRect(60, 80, 20, 20);
+//Now for some Transformations.
+ctx.translate(160, 70);
+drawMonster(ctx, 0, 0);
+ctx.translate(300, 0);
+ctx.rotate(Math.PI/4);
+ctx.scale(0.5, 0.5);
+drawMonster(ctx, 0 , 0);
+ctx.fillRect(0, 0, 20, 20);
