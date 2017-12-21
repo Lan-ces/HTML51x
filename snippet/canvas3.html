@@ -1,0 +1,9 @@
+var canvas = document.querySelector("#myCanvas3");
+var ctx = canvas.getContext('2d');
+var imageObj = new Image();
+imageObj.onload = function() {
+    ctx.drawImage(imageObj,0,0,100,100);
+    ctx.drawImage(imageObj,100,100,200,200);
+    ctx.drawImage(imageObj,50,0,400,100,300,0,175,50);
+};
+imageObj.src = "../img/HTML5_Logo_512.png";

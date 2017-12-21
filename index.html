@@ -261,18 +261,60 @@
                 </article>
                 <article>
                     <header>
-                        <h3>More About the Canvas</h3>
-                        <time datetime="2017-12-20">December 20, 2017</time>
+                        <h3>Drawing Text on the Canvas</h3>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
-                    <p></p>
+                    <p>You can draw text on the canvas with fillText and strokeText. You can specify how the text is drawn using the font property of the context. The font property is CSS-compliant ant thus you can specify the style, weight, size and face.</p>
+                    <canvas id="myCanvas2" width="600" height="300">Canvas is disabled or not supported.</canvas>
+                    <p>You can see in the code below how we draw strokeText on top of fillText to give the ext a border. You can also see how we specify font properties in different ways.</p>
+                    <p>The last example uses the optional last parameter of maxWidth to constarin the text to the width specified.</p>
+                    <p>The part in the middle measures the text and then draws a baseline under it with the legth of the text's width.</p>
+                    <div class="code" w3-include-html="snippet/canvas2.html"></div>
+                    <p>You can also change the way the text is drawn horizontally with the textBaseline property and the horizontal alignment with the textAlign property.
+                     Check out <a href="https://jsbin.com/haxiru/1/edit?html,output" target="_blank">this</a> and <a href="https://jsbin.com/yapiqi/1/edit?html,output" target="_blank">this</a> for demonstrations.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
                 <article>
                     <header>
-                        <h3>Article 3</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <h3>Drawing Images on the Canvas</h3>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
-                    <p></p>
+                    <p>Images must be fully loaded before they are drawn. For this reason they are loaded asynchronously in the background </p>
+                    <canvas id="myCanvas3" width="600" height="300">Canvas is disabled or not supported.</canvas>
+                    <p>In the code below we create an Image object and set up an onload callback. At the bottom we specify the source which stsrts loading the image. Once it is loaded the onload callback gets called.</p>
+                    <p>In the callback we draw the image three diferent ways. The first is in the top corner with a width and height of 100. The second starts from the bottom corner of the first and has a width and height of 200.</p>
+                    <p>The third is a little different. It selects a portion of the original starting at (50,0) with dimensions of (400,100) and then draws it on the canvas at (300,0) with dimensions of (175,50).</p>
+                    <div class="code" w3-include-html="snippet/canvas3.html"></div>
+                    <p>The image source can also be a video stream, another canvas or an &lt;img&gt; element.</p>
+                    <p>Check out <a href="https://jsbin.com/canotip/1/edit?html,output" target="_blank">this</a> link to see an example of drawing an image from a video source.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Path Mode Drawing</h3>
+                        <time datetime="2017-12-21">December 21, 2017</time>
+                    </header>
+                    <p>Path drawing mode is faster than immediate mode and can be used for drawing many things.</p>
+                    <canvas id="myCanvas4" width="400" height="200">Canvas is disabled or not supported.</canvas>
+                    <p>In the code below you see the path mode version of drawing rectangles. Note that when I draw the third rectangle, the red wireframe, that it also redraws the previous rectangle as a red wireframe as well.</p>
+                    <p>This is because it is still in the buffer since we did not call beginPath in between them. Also note that only two lines of the triangle are specifically drawn. The other is drawn because of the closePath line.</p>
+                    <div class="code" w3-include-html="snippet/canvas4.html"></div>
+                    <p>Visit the <a href="https://www.w3schools.com/graphics/canvas_intro.asp" target="_blank">w3schools Canvas Tutorial</a> for more canvas drawing like arcs, curves, transformations and more.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Transparency, Gradients and More</h3>
+                        <time datetime="2017-12-21">December 21, 2017</time>
+                    </header>
+                    <p>Here is an example of drawing using the alpha channel and drawing using a gradient.</p>
+                    <canvas id="myCanvas5" width="600" height="300">Canvas is disabled or not supported.</canvas>
+                    <p>The first part of the code draws three rectangles using different values for the transparency.</p>
+                    <p>I then create a rainbow gradient. The first line determines the placement and direction of the gradient. The color stops define the colors it uses. I then set the fillStyle to this gradient and draw some rectangles to show what gets displayed.</p>
+                    <div class="code" w3-include-html="snippet/canvas5.html"></div>
+                    <p>You can also apply gradients to stroke objects and create radial gradients. You can use shadows and style lines.</p>
+                    <p>Check out <a href="https://www.w3schools.com/graphics/canvas_reference.asp" target="_blank">w3schools Canvas Reference</a> for information on these options and more.</p>
+                    <p>Also check out <a href="https://jsbin.com/sevecukuwu/1/edit?html,output" target="_blank">this</a> link for an example of drawing with patterns and loading multiple images.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
             </section>
@@ -281,7 +323,7 @@
                 <article>
                     <header>
                         <h3>Article 1</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -289,7 +331,7 @@
                 <article>
                     <header>
                         <h3>Article 2</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -297,7 +339,7 @@
                 <article>
                     <header>
                         <h3>Article 3</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -308,7 +350,7 @@
                 <article>
                     <header>
                         <h3>Article 1</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -316,7 +358,7 @@
                 <article>
                     <header>
                         <h3>Article 2</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -324,7 +366,7 @@
                 <article>
                     <header>
                         <h3>Article 3</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -335,7 +377,7 @@
                 <article>
                     <header>
                         <h3>Article 1</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -343,7 +385,7 @@
                 <article>
                     <header>
                         <h3>Article 2</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -351,7 +393,7 @@
                 <article>
                     <header>
                         <h3>Article 3</h3>
-                        <time datetime="2017-12-18">December 19, 2017</time>
+                        <time datetime="2017-12-21">December 21, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
