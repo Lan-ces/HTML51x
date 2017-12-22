@@ -332,10 +332,25 @@
                 <h2>HTML5 Animations</h2>
                 <article>
                     <header>
-                        <h3>Article 1</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
+                        <h3>Basic Animation in the Canvas</h3>
+                        <time datetime="2017-12-22">December 22, 2017</time>
                     </header>
-                    <p></p>
+                    <p>Basic animation consists of clearing the screen/canvas, drawing something on it, change some property of it and then repeat. Doing this fast enough will result in aniimation. An animation done at 60 frames per second (fps) can be smoother then one done at 30fps.</p>
+                    <p>Before HTML5 and canvas this was done using divs, css backgrounds and positioning as well as Javascript.</p>
+                    <p>The two methods used for animation were setinterval(function, ms) and setTimeout(function, ms). The diference in these is that seInterval will run every n milliseconds where setTimeout will run once after n milliseconds and you would generally call it again at the end of the function.</p>
+                    <p>The new HTML5 method is requestAnimationFrame(function). There is no second parameter as it is set to 16.6ms to produce a 60fps animation.</p>
+                    <p>Below I set up three canvas elements and put CSS borders around them so you can see where they are. The first uses setInterval, the second uses setTimeout and the third uses requestAnimationFrame to animate a rectangle.</p>
+                    <canvas id="myCanvas6-1" width="200" height="100">Canvas is disabled or not supported.</canvas>
+                    <canvas id="myCanvas6-2" width="200" height="100">Canvas is disabled or not supported.</canvas>
+                    <canvas id="myCanvas6-3" width="200" height="100">Canvas is disabled or not supported.</canvas>
+                    <p>As you can see in the code below, animation is not that difficult. We get the canvas and context as usual. We set the starting X of the rectangle and the number of pixels to move (speed) each update. Then we simply call one of the three animation funcions with a callback that does the update.</p>
+                    <p>In the animate function we clear the canvas, draw the rectangle and then update the position for the next call. Since setTimeout and requestAnimationFrame only run once we call them again at the end of the function.</p>
+                    <p>I have setInterval being called every 33ms, about 30fps, setTimeout at 22ms, about 45fps and requestAnimationFrame runs at about 60fps as long as the system it is running on can support that rate.</p>
+                    <div class="code" w3-include-html="snippet/canvas6.html"></div>
+                    <p>setInterval will execute the function passed as first parameter every n milliseconds regardless of when the function was last called or how long the function takes to execute. If the function takes longer than the interval, then setInterval might queue too many function executions back to back when the interval is too short, leading to unpredictable results.</p>
+                    <p>setTimeout solves thi issue since it only runs once and is not called again until the end of the callback. However, both have problems with no being very prcise in their timing which may be noticeable in some situations.</p>
+                    <p>requestAnimationFrame uses a high resolution timer which makes it more accurate, it also provides an extra parameter to the callback which is a high resolution time. It is useful in time-based animation which can account for any difference in the timing.</p>
+                    <p>Check out <a href="https://jsbin.com/jukoniz/1/edit?html,output" target="_blank">this</a> link for an animation that uses start and stop buttons, transformations and shows where the timestamp mentioned above comes from although it is not used.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
                 <article>

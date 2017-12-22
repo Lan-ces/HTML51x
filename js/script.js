@@ -8,6 +8,9 @@ $(document).ready(function() {
     canvasPlay3();
     canvasPlay4();
     canvasPlay5();
+    canvasPlay6_1();
+    canvasPlay6_2();
+    canvasPlay6_3();
 });
 
 function canvasPlay1() {
@@ -136,4 +139,54 @@ function canvasPlay5() {
     ctx.fillRect(450,20,150,60);
     ctx.fillRect(300,90,300,200);
     ctx.fillRect(0,200,100,100);
+}
+
+function canvasPlay6_1() {
+    var canvas = document.querySelector("#myCanvas6-1");
+    var ctx = canvas.getContext('2d');
+    var rectX = 0;
+    var speed = 3;
+    setInterval(animate,33);
+    function animate() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.fillRect(rectX,10,60,80);
+        rectX += speed;
+        if((rectX+60 > 200) || (rectX <= 0)){
+            speed = -speed;
+        }
+    }
+}
+
+function canvasPlay6_2() {
+    var canvas = document.querySelector("#myCanvas6-2");
+    var ctx = canvas.getContext('2d');
+    var rectX = 0;
+    var speed = 3;
+    setTimeout(animate,22);
+    function animate() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.fillRect(rectX,10,60,80);
+        rectX += speed;
+        if((rectX+60 > 200) || (rectX <= 0)){
+            speed = -speed;
+        }
+        setTimeout(animate,22);
+    }
+}
+
+function canvasPlay6_3() {
+    var canvas = document.querySelector("#myCanvas6-3");
+    var ctx = canvas.getContext('2d');
+    var rectX = 0;
+    var speed = 3;
+    requestAnimationFrame(animate);
+    function animate() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.fillRect(rectX,10,60,80);
+        rectX += speed;
+        if((rectX+60 > 200) || (rectX <= 0)){
+            speed = -speed;
+        }
+        requestAnimationFrame(animate);
+    }
 }

@@ -1,0 +1,17 @@
+var canvas = document.querySelector("#myCanvas6");
+var ctx = canvas.getContext('2d');
+var rectX = 0;
+var speed = 3;
+setInterval(animate,33);
+//setTimeout(animate,22);
+//requestAnimationFrame(animate);
+function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillRect(rectX,10,60,80);
+    rectX += speed;
+    if((rectX+60 > 200) || (rectX <= 0)){
+        speed = -speed;
+    }
+    //setTimeout(animate,22);
+    //requestAnimationFrame(animate);
+}
