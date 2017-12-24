@@ -355,18 +355,49 @@
                 </article>
                 <article>
                     <header>
-                        <h3>Article 2</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
+                        <h3>Keyboard and Mouse Events in the Canvas</h3>
+                        <time datetime="2017-12-23">December 23, 2017</time>
                     </header>
-                    <p></p>
+                    <p>Below is a table drawn on a canvas to show some keyboard and mouse handling. It is designed so it only works when the mouse pointer is within the canvas. When the mouse moves inside the canvas the border turns blue to show it has focus.</p>
+                    <p>While inside the canvas the page will capture several keyboard and mouse events. Note: mouseover only triggers when the mouse is moved outside the canvas and then back in.</p>
+                    <p>Move the mouse around, click some buttons and press some keyboard keys to see what happens.</p>
+                    <canvas id="myCanvas7" width="600" height="300" tabindex="1">Canvas is disabled or not supported.</canvas>
+                    <p>Last mouse event: <span  id="mouseEvent"></span></p>
+                    <p>Canvas mouse position: <span id="mousePos"></span></p>
+                    <hr>
+                    <p>There is a lot going on in the code so I split it up into three sections. The first section has the main code and the next two sections have a few functions that are needed.</p>
+                    <p>The first two lines get the canvas and context as usual. We want a 3x4 table so I calculate cellWidth and cellHeight from the canvas width and height. I set the font and and place the textBaseline at middle so it is easy to center the text vertically in the cell.</p>
+                    <p>I call a function drawGrid to draw the grid which we'll look at later. I then get the spans for the mouse event and mouse position texts. I then add the needed event listeners.</p>
+                    <p>The first two event listeners are mouseenter and mouseout. These are used to have the canvas get and lose focus without having to click on it. It is required to have focus to capture the events atttached to it.</p>
+                    <p>The next four mouse event listeners handle the text displayed in the spans. The mousedown event also uses event.button to display the button pressed. It also uses preventDefault to stop the page from selecting text when the buton is pressed quickly.</p>
+                    <p>The mousemove event calls the showMousePos function which calculates the mouse position on the canvas by subtracting where the top left of the canvas is on the page compared to where the mouse is on the page as a whole.</p>
+                    <p>The last two event listeners set up the callbacks for the keydown and keyup events.</p>
+                    <div class="code" w3-include-html="snippet/canvas7-1.html"></div>
+                    <p>Inside these functions the cells are cleared before updating each text. We add 1 to the cellWidth and cellHeight start and subtract 2 for the end so it doesn't clear the lines made in drawGrid.</p>
+                    <p>The text itself is drawn using an X padding of 10 and centered vertically using 1.5, 2.5 etc.</p>
+                    <p>We use event.keyCode, event.key and event.code for the text to be drawn in the table. We also use preventDefault to stop the page from moving around etc while pressing keys.</p>
+                    <div class="code" w3-include-html="snippet/canvas7-2.html"></div>
+                    <p>In the drawGrid function we use for loops to draw the lines and then fillText for the labels. We use similar calculations here as above.</p>
+                    <div class="code" w3-include-html="snippet/canvas7-3.html"></div>
+                    <p>Check out <a href="https://jsbin.com/hovopim/edit?html,output" target="_blank">this</a> link for an example of combining key and mouse events with animation.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
                 <article>
                     <header>
-                        <h3>Article 3</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
+                        <h3>Resizing a Canvas</h3>
+                        <time datetime="2017-12-23">December 23, 2017</time>
                     </header>
-                    <p></p>
+                    <p>Changing the width or height property of a canvas in Javascript erases its content and resets its context. Using percentages in the CSS width and height properties does not change the nuber of pixels but scales the existing pixels which is likely undesireable a most times.</p>
+                    <p>To create a responsive canvas, first enclose it in a div or some other parent element. Use percentages to change the parent element. Use a resize listener on the parent and inside the listener use Javascript to change the width and height of the canvas. Redraw the canvas at the appropriate scale.</p>
+                    <p>Here is a <a href="https://jsbin.com/fayire/1/edit?html,output" target="_blank">link</a> with an example.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Animation Example written by Me</h3>
+                        <time datetime="2017-12-23">December 23, 2017</time>
+                    </header>
+                    <p>Decide on some animation example. Maybe a small game.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
             </section>
@@ -374,26 +405,142 @@
                 <h2>HTML5 Forms</h2>
                 <article>
                     <header>
-                        <h3>Article 1</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
+                        <h3>Exploring Several Options with Forms</h3>
+                        <time datetime="2017-12-24">December 24, 2017</time>
                     </header>
-                    <p></p>
-                    <footer>Written by Michael Smith</footer>
-                </article>
-                <article>
-                    <header>
-                        <h3>Article 2</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
-                    </header>
-                    <p></p>
-                    <footer>Written by Michael Smith</footer>
-                </article>
-                <article>
-                    <header>
-                        <h3>Article 3</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
-                    </header>
-                    <p></p>
+                    <p>Basic HTML forms have not changed much since 1997 until HTML5. This may not be apparent to most users since they were usually enhanced with custom Javascript or the use of frameworks.</p>
+                    <p>HTML5 introduces some new elements, many new input types, built-in validation, CSS pseudo classes and more.</p>
+                    <p>Some of these new input types are very helpful for mobile browsers including the ability to use contextual keyboards.</p>
+                    <p>Not all of these options are fully supported on all browsers. Check the <a href="https://caniuse.com/" target="_blank">caniuse</a> website for support, polyfills to add support etc.</p>
+                    <p>Many of the input types can use attributes value, min, max, step and list.</p>
+                    <form action="" method="POST" id="myForm">
+                        <fieldset id="accountInfo">
+                            <legend>Account Information</legend>
+                            <ul>
+                                <li>
+                                    <label for="firstname">First Name:</label>
+                                    <input type="text" name="firstname" id="firstname" required placeholder="John">
+                                </li>
+                                <li>
+                                    <label for="lastname">Last name:</label>
+                                    <input type="text" name="lastname" id="lastname" required placeholder="Doe">
+                                </li>
+                                <li>
+                                    <label for="username">Username:</label>
+                                    <input type="text" name="username" id="username" required pattern="\w{5,50}" placeholder="john_doe">
+                                    <span>Must be 5 to 50 characters.</span>
+                                </li>
+                                <li>
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" id="email" required placeholder="johndoe@anonymous.net">
+                                </li>
+                                <li>
+                                    <label for="password1">Password:</label>
+                                    <input type="password" name="password1" id="password1" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain a lowercase and uppercase leter and a number. Minimum length of 8 characters.">
+                                </li>
+                                <li>
+                                    <label for="password2">Repeat Password:</label>
+                                    <input type="password" name="password2" id="password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                                </li>
+                            </ul>
+                        </fieldset>
+                        <fieldset id="otherInfo">
+                            <legend>Other Information</legend>
+                            <ul>
+                                <li>
+                                    <label for="age">Age:</label>
+                                    <input type="number" name="age" id="age">
+                                </li>
+                                <li>
+                                    <label for="birthdate">Birth Date:</label>
+                                    <input type="date" name="birthdate" id="birthdate">
+                                </li>
+                                <li>
+                                    <label for="favcolor">Favorite Color:</label>
+                                    <input type="color" name="favcolor" id="favcolor" value="#0000FF" list="popColors">
+                                    <datalist id="popColors">
+                                        <option>#FF0000</option>
+                                        <option>#00FF00</option>
+                                        <option>#0000FF</option>
+                                        <option>#FFFF00</option>
+                                        <option>#FF00FF</option>
+                                        <option>#00FFFF</option>
+                                        <option>#0088FF</option>
+                                        <option>#8800FF</option>
+                                        <option>#00FF88</option>
+                                        <option>#88FF00</option>
+                                        <option>#FF0088</option>
+                                        <option>#FF8800</option>
+                                    </datalist>
+                                </li>
+                                <li>
+                                    <label for="telnumber">Telephone Number:</label>
+                                    <input type="tel" name="telnumber" id="telnumber" placeholder="(555) 555-5555" pattern="^(?\d{3})?[-\s]\d{3}[-\s]\d{4}.*?\)">
+                                </li>
+                                <li>
+                                    <label for="favurl">Favorite URL (Default Validation): </label>
+                                    <input type="url" name="favurl" id="favurl">
+                                </li>
+                                <li>
+                                    <label for="favurl2">Favorite URL (Custom Validation):</label>
+                                    <input type="url" name="favurl2" id="favurl2" placeholder="http://www.domain.com" pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*">
+                                </li>
+                                <li>
+                                    <label for="numrange">Number Range:</label>
+                                    <input type="range" name="numrange" id="numrange" value="75" min="25" max="300" step="25">
+                                    <output id="numrangevalue">25</output>
+                                </li>
+                                <li>
+                                    <label for="formsearch">Form Search:</label>
+                                    <input type="search" name="formsearch" id="formsearch">
+                                </li>
+                                <li>
+                                    <label for="dtime">Date Time:</label>
+                                    <input type="datetime" name="dtime" id="dtime">
+                                </li>
+                                <li>
+                                    <label for="dtlocal">Date Time Local:</label>
+                                    <input type="datetime-local" name="dtlocal" id="dtlocal">
+                                </li>
+                                <li>
+                                    <label for="favweek">Favorite Week:</label>
+                                    <input type="week" name="favweek" id="favweek">
+                                </li>
+                                <li>
+                                    <label for="favmonth">Favorite Month:</label>
+                                    <input type="month" name="favmonth" id="favmonth">
+                                </li>
+                            </ul>
+                        </fieldset>
+                        <button id="submitButton">Submit</button>
+                    </form>
+                    <p>There is a lot of html in this one so I will not reproduce it below. I recommend using the devtools to inspect it. I will show the CSS and Javascript below for convenience.</p>
+                    <p>The first thing I will point out is the use of 'fieldset' and 'legend'. This not only helps to keep related information together but also helps with accessibility.</p>
+                    <p>Each input also has a 'label for' element. This helps to describe the element and also helps for selecting elements as clicking on the text selects the input element.</p>
+                    <p>All the 'Account Information' fields use CSS to color the fields based on their validity since they all have the 'required' atribute.</p>
+                    <p>There are many types of inputs that accept varying types of input as seen. Some of these use special attributes to do different things.</p>
+                    <p>For the first two I just use 'required' which makes it so the field must be filled in and 'placeholder' to show some sample text.</p>
+                    <p>The username field adds the 'pattern' attribute which uses a regex to restrict the field to between 5 and 50 characters. It also uses a span that is not displayed once the field is valid using CSS.</p>
+                    <p>The email field just uses the default validation to decide whether the field is valid or not.</p>
+                    <p>The password fields also use a regex pattern to require one lowercase and one uppercase letter as well as one number. It also restricts it to at least 8 characters.</p>
+                    <p>The first password field also uses a 'title' attribute to provide a tooltip that specifies what is required instead of the span used for username.</p>
+                    <p>The second password field uses javascript to specify custom validation that requires it to match the first password field.</p>
+                    <p>The lower part has similar attributes except the range input also uses a default 'value', 'min', 'max' and 'step' attributes.</p>
+                    <hr>
+                    <p>The CSS</p>
+                    <p>Most of it is pretty basic except the selection of the inputs using the 'valid' and 'invalid' pseudo selectors. Of note here is I also use the 'not' to exclude two fields.</p>
+                    <p>Also of note is the last two selectors that hide or show the span on the username field.</p>
+                    <div class="code" w3-include-html="snippet/form-css.html"></div>
+                    <p>The Javascript</p>
+                    <p>Aside from the password validation metioned above there is also code to show the numeric value of the range input.</p>
+                    <div class="code" w3-include-html="snippet/form-js.html"></div>
+                    <p>There is a lot more I have not covered and <a href="https://www.wufoo.com/html5/" target="_blank">this site</a> covers the really well.</p>
+                    <p>Here is a nice <a href="http://dev.dhc3.intrasoft-intl.com/html5/iomgi/form.html" target="_blank">example</a> of form styling.</p>
+                    <p>This <a href="https://jsbin.com/fatube/edit?html,output" target="_blank">example</a> shows how you can use for elements not just for forms but also to control other elements.</p>
+                    <p>Using labels on options is also possible as shown in <a href="https://jsbin.com/gezawe/1/edit?html,output" target="_blank">this example</a>.</p>
+                    <p>This <a href="https://jsbin.com/hudafo/1/edit?html,output" target="_blank">example</a> shows using min, max and step in a date input type.</p>
+                    <p>Here is a <a href="http://www.cssportal.com/style-input-range/" target="_blank">site</a> that helps styling sliders or can give you some inspiration.</p>
+                    <p>In this <a href="https://jsbin.com/povekur/1/edit?html,output" target="_blank">example</a> it shows aggregation of error messages and overiding default behaviour.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
             </section>
@@ -402,7 +549,7 @@
                 <article>
                     <header>
                         <h3>Article 1</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
+                        <time datetime="2017-12-23">December 23, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -410,7 +557,7 @@
                 <article>
                     <header>
                         <h3>Article 2</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
+                        <time datetime="2017-12-23">December 23, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
@@ -418,7 +565,7 @@
                 <article>
                     <header>
                         <h3>Article 3</h3>
-                        <time datetime="2017-12-21">December 21, 2017</time>
+                        <time datetime="2017-12-23">December 23, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>

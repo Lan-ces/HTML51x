@@ -1,0 +1,14 @@
+var numrange = document.querySelector("#numrange");
+var numrangevalue = document.querySelector("#numrangevalue");
+numrange.addEventListener("input", function() {
+    numrangevalue.value = numrange.value;
+});
+var password1 = document.querySelector("#password1");
+var password2 = document.querySelector("#password2");
+password2.addEventListener("input", function() {
+    if (password1.value != password2.value) {
+        password2.setCustomValidity("Passwords do not match!");
+    } else {
+        password2.setCustomValidity("");
+    }
+});

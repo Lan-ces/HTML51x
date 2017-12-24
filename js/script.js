@@ -11,6 +11,8 @@ $(document).ready(function() {
     canvasPlay6_1();
     canvasPlay6_2();
     canvasPlay6_3();
+    canvasPlay7();
+    formPlay();
 });
 
 function canvasPlay1() {
@@ -151,7 +153,7 @@ function canvasPlay6_1() {
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.fillRect(rectX,10,60,80);
         rectX += speed;
-        if((rectX+60 > 200) || (rectX <= 0)){
+        if ((rectX+60 > 200) || (rectX <= 0)) {
             speed = -speed;
         }
     }
@@ -167,7 +169,7 @@ function canvasPlay6_2() {
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.fillRect(rectX,10,60,80);
         rectX += speed;
-        if((rectX+60 > 200) || (rectX <= 0)){
+        if ((rectX+60 > 200) || (rectX <= 0)) {
             speed = -speed;
         }
         setTimeout(animate,22);
@@ -184,9 +186,91 @@ function canvasPlay6_3() {
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.fillRect(rectX,10,60,80);
         rectX += speed;
-        if((rectX+60 > 200) || (rectX <= 0)){
+        if ((rectX+60 > 200) || (rectX <= 0)) {
             speed = -speed;
         }
         requestAnimationFrame(animate);
     }
+}
+
+function canvasPlay7() {
+    var canvas = document.querySelector("#myCanvas7");
+    var ctx = canvas.getContext('2d');
+    cellWidth = canvas.width / 3;
+    cellHeight = canvas.height / 4;
+    ctx.font = ('26px Calibri');
+    ctx.textBaseline = 'middle';
+    drawGrid();
+    var mouseEvent = document.querySelector("#mouseEvent");
+    var mousePos = document.querySelector("#mousePos");
+    canvas.addEventListener('mouseenter', function(event) {
+        canvas.focus(); });
+    canvas.addEventListener('mouseout', function(event) {
+        canvas.blur(); });
+    canvas.addEventListener('mouseover', function (event) {
+        mouseEvent.innerHTML = 'mouseover'; });
+    canvas.addEventListener('mousedown', function (event) {
+        mouseEvent.innerHTML = 'mousedown Button#: ' + event.button;
+        event.preventDefault(); });
+    canvas.addEventListener('mouseup', function (event) {
+        mouseEvent.innerHTML = 'mouseup'; });
+    canvas.addEventListener('mousemove', function (event) {
+        showMousePos(); });
+    canvas.addEventListener('keydown', handleKeydown, false);
+    canvas.addEventListener('keyup', handleKeyup, false);
+    function showMousePos() {
+        var canvasLoc = canvas.getBoundingClientRect();
+        mousePos.innerHTML = "x: " + (event.clientX - canvasLoc.left).toString()
+        + ", y: " + (event.clientY - canvasLoc.top).toString();
+    }
+    function drawGrid() {
+        for (var i=1; i<=2; i++) {
+            ctx.moveTo(cellWidth*i,0);
+            ctx.lineTo(cellWidth*i,canvas.height);
+        }
+        for (var i=1; i<=3; i++) {
+            ctx.moveTo(0,cellHeight*i);
+            ctx.lineTo(canvas.width,cellHeight*i);
+        }
+        ctx.stroke();
+        ctx.fillText('keydown',cellWidth+10,cellHeight/2);
+        ctx.fillText('keyup',cellWidth*2+10,cellHeight/2);
+        ctx.fillText('event.keyCode',10,cellHeight*1.5);
+        ctx.fillText('event.key',10,cellHeight*2.5);
+        ctx.fillText('event.code',10,cellHeight*3.5);
+    }
+    function handleKeydown(event) {
+        ctx.clearRect(cellWidth+1,cellHeight+1,cellWidth-2,cellHeight-2);
+        ctx.strokeText(event.keyCode, cellWidth+10, cellHeight*1.5);
+        ctx.clearRect(cellWidth+1,cellHeight*2+1,cellWidth-2,cellHeight-2);
+        ctx.strokeText(event.key, cellWidth+10, cellHeight*2.5);
+        ctx.clearRect(cellWidth+1,cellHeight*3+1,cellWidth-2,cellHeight-2);
+        ctx.strokeText(event.code, cellWidth+10, cellHeight*3.5);
+        event.preventDefault();
+    }
+    function handleKeyup(event) {
+        ctx.clearRect(cellWidth*2+1,cellHeight+1,cellWidth-2,cellHeight-2);
+        ctx.strokeText(event.keyCode, cellWidth*2+10, cellHeight*1.5);
+        ctx.clearRect(cellWidth*2+1,cellHeight*2+1,cellWidth-2,cellHeight-2);
+        ctx.strokeText(event.key, cellWidth*2+10, cellHeight*2.5);
+        ctx.clearRect(cellWidth*2+1,cellHeight*3+1,cellWidth-2,cellHeight-2);
+        ctx.strokeText(event.code, cellWidth*2+10, cellHeight*3.5);
+        event.preventDefault();
+    }
+}
+function formPlay() {
+    var numrange = document.querySelector("#numrange");
+    var numrangevalue = document.querySelector("#numrangevalue");
+    numrange.addEventListener("input", function() {
+        numrangevalue.value = numrange.value;
+    });
+    var password1 = document.querySelector("#password1");
+    var password2 = document.querySelector("#password2");
+    password2.addEventListener("input", function() {
+        if (password1.value != password2.value) {
+            password2.setCustomValidity("Passwords do not match!");
+        } else {
+            password2.setCustomValidity("");
+        }
+    });
 }

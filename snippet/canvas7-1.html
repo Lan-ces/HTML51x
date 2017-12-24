@@ -1,0 +1,29 @@
+var canvas = document.querySelector("#myCanvas7");
+var ctx = canvas.getContext('2d');
+cellWidth = canvas.width / 3;
+cellHeight = canvas.height / 4;
+ctx.font = ('26px Calibri');
+ctx.textBaseline = 'middle';
+drawGrid();
+var mouseEvent = document.querySelector("#mouseEvent");
+var mousePos = document.querySelector("#mousePos");
+canvas.addEventListener('mouseenter', function(event) {
+    canvas.focus(); });
+canvas.addEventListener('mouseout', function(event) {
+    canvas.blur(); });
+canvas.addEventListener('mouseover', function (event) {
+    mouseEvent.innerHTML = 'mouseover'; });
+canvas.addEventListener('mousedown', function (event) {
+    mouseEvent.innerHTML = 'mousedown Button#: ' + event.button;
+    event.preventDefault(); });
+canvas.addEventListener('mouseup', function (event) {
+    mouseEvent.innerHTML = 'mouseup'; });
+canvas.addEventListener('mousemove', function (event) {
+    showMousePos(); });
+canvas.addEventListener('keydown', handleKeydown, false);
+canvas.addEventListener('keyup', handleKeyup, false);
+function showMousePos() {
+    var canvasLoc = canvas.getBoundingClientRect();
+    mousePos.innerHTML = "x: " + (event.clientX - canvasLoc.left).toString()
+    + ", y: " + (event.clientY - canvasLoc.top).toString();
+}

@@ -1,0 +1,16 @@
+function drawGrid() {
+    for (var i=1; i<=2; i++) {
+        ctx.moveTo(cellWidth*i,0);
+        ctx.lineTo(cellWidth*i,canvas.height);
+    }
+    for (var i=1; i<=3; i++) {
+        ctx.moveTo(0,cellHeight*i);
+        ctx.lineTo(canvas.width,cellHeight*i);
+    }
+    ctx.stroke();
+    ctx.fillText('keydown',cellWidth+10,cellHeight/2);
+    ctx.fillText('keyup',cellWidth*2+10,cellHeight/2);
+    ctx.fillText('event.keyCode',10,cellHeight*1.5);
+    ctx.fillText('event.key',10,cellHeight*2.5);
+    ctx.fillText('event.code',10,cellHeight*3.5);
+}

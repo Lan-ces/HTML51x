@@ -1,0 +1,18 @@
+function handleKeydown(event) {
+    ctx.clearRect(cellWidth+1,cellHeight+1,cellWidth-2,cellHeight-2);
+    ctx.strokeText(event.keyCode, cellWidth+10, cellHeight*1.5);
+    ctx.clearRect(cellWidth+1,cellHeight*2+1,cellWidth-2,cellHeight-2);
+    ctx.strokeText(event.key, cellWidth+10, cellHeight*2.5);
+    ctx.clearRect(cellWidth+1,cellHeight*3+1,cellWidth-2,cellHeight-2);
+    ctx.strokeText(event.code, cellWidth+10, cellHeight*3.5);
+    event.preventDefault();
+}
+function handleKeyup(event) {
+    ctx.clearRect(cellWidth*2+1,cellHeight+1,cellWidth-2,cellHeight-2);
+    ctx.strokeText(event.keyCode, cellWidth*2+10, cellHeight*1.5);
+    ctx.clearRect(cellWidth*2+1,cellHeight*2+1,cellWidth-2,cellHeight-2);
+    ctx.strokeText(event.key, cellWidth*2+10, cellHeight*2.5);
+    ctx.clearRect(cellWidth*2+1,cellHeight*3+1,cellWidth-2,cellHeight-2);
+    ctx.strokeText(event.code, cellWidth*2+10, cellHeight*3.5);
+    event.preventDefault();
+}
