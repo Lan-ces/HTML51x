@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="manifest.appcache">
 <head>
     <meta charset="utf-8">
     <title>HTML5 Tutorial Blog</title>
@@ -548,10 +548,33 @@
                 <h2>HTML5 Basic APIs</h2>
                 <article>
                     <header>
-                        <h3>Article 1</h3>
-                        <time datetime="2017-12-23">December 23, 2017</time>
+                        <h3>HTML5 Cache</h3>
+                        <time datetime="2017-12-24">December 24, 2017</time>
                     </header>
-                    <p></p>
+                    <p>The HTML5 cache can be used to decrease load times and bandwidth use as well as make pages or entire sites work while offline. This is good for desktop computers and great for mobile devices.</p>
+                    <p>Previously, caching was done by the browser and a developer had little choice on what was and wasn't cached. Now a developer can define what should and shouldn't be cached.</p>
+                    <p>Any part or functions of a web site that does not need immediate communication with the server can be cached and work offline.</p>
+                    <p>This is done with a manifest file which lists the files needed to be cached. This includes files from othe sites if needed (like jquery etc). It can also list files not to cache.</p>
+                    <p>A good place to start is by getting <a href="http://westciv.com/tools/manifestR/" target="_blank">manifestR</a> which will help you create a manifest file.</p>
+                    <p>The manifest file should have an appcache extension like manifest.appcache. You also need the manifest attribute in the html tag of each page you want to cache. The attributes value is set to the filename.</p>
+                    <p>It is good to watch the console in the devtools when you first add caching and then go offline or stop the server (you ar working on a test server and not a production server right?) to test it.</p>
+                    <hr>
+                    <p>Example html tag.</p>
+                    <div class="code">&lt;html lang="en" manifest="manifest.appcache"&gt;</div>
+                    <p>If a file is available in the cache it will always be retrieved from the cache. You can, however, make it update the cache by modifying the manifest file.</p>
+                    <p>If one file cannot be retrieved and cached then no files will be. There is no partial update so make sure to verify your manifest. <a href="http://manifesto.ericdelabar.com/" target="_blank">Manifesto</a> is one option.</p>
+                    <p>The manifest file must start with CACHE MANIFEST and is followed by the files that need to be cached. You can optionally include comments to organize the file which helps when you need to update it.</p>
+                    <p>You can also optionally include 3 sections: CACHE, FALLBACK and NETWORK. If you specify one, you should specify all three.</p>
+                    <p>The CACHE section is for the files that must be cached. Wildcards are not allowed in this section.</p>
+                    <p>The NETWORK section specifies files that should NOT be cached. Using a wildcard * is common practice and means "do not cache all files not in CACHE or FALLBACK sections".</p>
+                    <p>The FALLBACK section specifies resources that will be displayed when a user requests a resource not available while offline like a login page.</p>
+                    <p>Using "/ /offline.html" would cause offline.html to be displayed for anything that is not cached. Using "/images/ /images/missing.png" would display missing.png for any images not cached.</p>
+                    <hr>
+                    <p>Here is the manifest file for this site at the time of writing this. The second line with #version... is useful for forcing an update.</p>
+                    <p>The cache will not be updated just because you modify the html, css or other file. It will only be updated if the manifest file changes so you can simply change the version or date.</p>
+                    <p>When refreshing the page it will still load from the disk but it will check the manifest file, realize it is changed and update the cache. So you will see changes on the following refresh.</p>
+                    <div class="code" w3-include-html="manifest.appcache"></div>
+                    <p>Notice at the bottom here that I have smaller fallback videos that will play when offline and basically say "It appears you are offline".</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
                 <article>

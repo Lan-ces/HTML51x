@@ -1,0 +1,50 @@
+CACHE MANIFEST
+
+#version 1.04 12-25-2017
+
+CACHE:
+
+#images
+/img/HTML5_Logo_512.png
+/img/outliner.jpg
+/img/big-buck-bunny.png
+
+#internal HTML documents
+/snippet/audio.html
+/snippet/canvas1.html
+/snippet/canvas2.html
+/snippet/canvas3.html
+/snippet/canvas4.html
+/snippet/canvas5.html
+/snippet/canvas6.html
+/snippet/canvas7-1.html
+/snippet/canvas7-2.html
+/snippet/canvas7-3.html
+/snippet/details-summary.html
+/snippet/form-css.html
+/snippet/form-js.html
+/snippet/minimal-html.html
+/snippet/structure.html
+/snippet/translate-js.html
+/snippet/video.html
+
+#audio
+/audio/horse.mp3
+/audio/horse.ogg
+
+#style sheets
+/css/style.css
+
+#javascript files
+https://www.w3schools.com/lib/w3.js
+https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
+/js/details-element-polyfill.js
+/js/script.js
+
+FALLBACK:
+/video/big_buck_bunny.mp4 /video/offline.mp4
+/video/big_buck_bunny.ogv /video/offline.ogv
+/video/big_buck_bunny.webm /video/offline.webm
+
+NETWORK:
+*
