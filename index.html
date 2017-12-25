@@ -579,7 +579,38 @@
                 </article>
                 <article>
                     <header>
-                        <h3>Article 2</h3>
+                        <h3>The Web Storage API</h3>
+                        <time datetime="2017-12-25">December 25, 2017</time>
+                    </header>
+                    <p>The Web Storage API provides two interfaces called sessionStorage and localStorage. They both allow for the storage of key-value pairs of data.</p>
+                    <p>It is similar to cookies but the main difference is the amount of data able to be stored is much larger.</p>
+                    <p>The sessionStorage data is erased when the tab/browser is closed. The localStorage will remain until the data is deleted.</p>
+                    <p>There is only one key-value store per domain which follows the <a href="https://en.wikipedia.org/wiki/Same-origin_policy" target="_blank">same origin policy</a>.</p>
+                    <p>Storing and retrieving data is very simple as seen in the snippet below.</p>
+                    <div class="code" w3-include-html="snippet/webstorage.html"></div>
+                    <p>Check out <a href="https://jsbin.com/zezudo/edit?html,output" target="_blank">this</a> site for a basic example of storing form data as you type it and restoring it.
+                     This can be very helpful if something happens to close the page. When you go back, you don't have to start over.</p>
+                    <p>There are also several methods that can be used with the Web Storage API.</p>
+                    <p>The setItem(key, value) method will set a key to the corresponding value. This can be useful with a key "First Name" which would not be able to be used using the dot notation above.</p>
+                    <p>The getItem(key) method will get the value that is associated with the given key.</p>
+                    <p>The removeItem(key) method will remove the key-value pair associated with that key.</p>
+                    <p>The clear() method will erase everthing stored. Mostly used only when testing and from the devtools console.</p>
+                    <p>You can also use localStorage.length and iterate through each key with localStorage.key(i) to get the value of each key.</p>
+                    <p>Another method of accessing the values is by using localStorage[key].</p>
+                    <p>This <a href="https://jsbin.com/nedigi/edit?html,css,output" target="_blank">example</a> shows all of these in use.</p>
+                    <p>A very good use of the localStorage is to save your settings of a web app so the next time you come back it remembers your settings.</p>
+                    <p>Here is a great <a href="https://jsbin.com/volicig/edit?html,js,console,output" target="_blank">example</a> that shows working with
+                        generic reusable functions to save form data without having to know the number of fields, the names of the fields etc.</p>
+                    <p>It is generally advised to keep data stored in localStorage below 5MB. This is mostly an arbitrary number but if you need a lot more storage than this you are likely better off using indexedDB.</p>
+                    <p>This data may be wiped with cookies or by other means. If it is very important for your app to have this data or you want it to be shared across multiple devices you will have to synchronize it with data stored on the server.</p>
+                    <p>If you want to store more than simple strings in the store you can use JSON objects. Use the JSON method stringify to convert it to a string and use the method parse to restore it.</p>
+                    <p>Here is a simple <a href="https://jsbin.com/ciricis/2/edit?html,console,output" target="_blank">example</a>.</p>
+                    <p>A more complete <a href="https://jsbin.com/karoboj/3/edit?html,css,console,output" target="_blank">example</a>.</p>
+                    <footer>Written by Michael Smith</footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>Article 3</h3>
                         <time datetime="2017-12-23">December 23, 2017</time>
                     </header>
                     <p></p>
@@ -587,7 +618,7 @@
                 </article>
                 <article>
                     <header>
-                        <h3>Article 3</h3>
+                        <h3>Article 4</h3>
                         <time datetime="2017-12-23">December 23, 2017</time>
                     </header>
                     <p></p>

@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 1.04 12-25-2017
+#version 1.06 12-25-2017
 
 CACHE:
 
@@ -27,6 +27,7 @@ CACHE:
 /snippet/structure.html
 /snippet/translate-js.html
 /snippet/video.html
+/snippet/webstorage.html
 
 #audio
 /audio/horse.mp3
