@@ -610,16 +610,27 @@
                 </article>
                 <article>
                     <header>
-                        <h3>Article 3</h3>
-                        <time datetime="2017-12-23">December 23, 2017</time>
+                        <h3>The File API</h3>
+                        <time datetime="2017-12-25">December 25, 2017</time>
                     </header>
-                    <p></p>
+                    <p>Prior to HTML5, file management was limited to pretty much sending and receiving files.</p>
+                    <p>The file API allows client-side JavaScript to work with local files without having to send them to the server.</p>
+                    <p>The file API reads files and encodes them in what is called a data url. Here is the first piece of one "data:image/jpeg;base64,/9j/4AAQSkZJRgA"</p>
+                    <p>The above data url is a small image of a kitten which was only 14k in size. As a data url it is almost 18k. If you had the full thing you could paste it in a tab and see the image.</p>
+                    <p>Try uploading a file to <a href="http://dataurl.net/#dataurlmaker" target="_blank">dataurl.net</a> to create your own and test it out.</p>
+                    <p>Try this <a href="https://jsbin.com/nituko/1/edit?html,output" target="_blank">example</a> to see image previews of files you load from your local disk.</p>
+                    <p>This <a href="https://jsbin.com/deboja/edit?html,output" target="_blank">example</a> shows how to read metadata of files and also shows the optional accept attribute to filter files.</p>
+                    <p>Aside from readAsDataURL there are two other methods for reading files. They are readAsText and readAsArrayBuffer.</p>
+                    <p>The readAsText method is used similar to the readAsDataURL method.</p>
+                    <p>Here is an <a href="https://jsbin.com/xewemi/edit?html,output" target="_blank">example</a> of reading a single text file.</p>
+                    <p>The readAsArrayBuffer method is not used as often and is for loading "raw" binary data.</p>
+                    <p>It can be used for loading sound samples into memory for use with the WebAudio API or loading textures for WebGL and 3D animation.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
                 <article>
                     <header>
                         <h3>Article 4</h3>
-                        <time datetime="2017-12-23">December 23, 2017</time>
+                        <time datetime="2017-12-25">December 25, 2017</time>
                     </header>
                     <p></p>
                     <footer>Written by Michael Smith</footer>
