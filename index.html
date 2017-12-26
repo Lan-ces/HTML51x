@@ -629,10 +629,19 @@
                 </article>
                 <article>
                     <header>
-                        <h3>Article 4</h3>
+                        <h3>The Geolocation API</h3>
                         <time datetime="2017-12-25">December 25, 2017</time>
                     </header>
-                    <p></p>
+                    <p>The geolocation API uses several means to get the current location including GPS, GSM/3G triangulation, Wifi, IP address, etc.</p>
+                    <p>Here is a quick <a href="https://jsbin.com/toyeley/1/edit?html,output" target="_blank">example</a> of getting coordinates.</p>
+                    <p>The coords object has properties of latitude, longitude, altitude, accuracy, altitudeAccuracy, heading and speed. Not all may be available and will be set to null if not available.</p>
+                    <p>Here is an <a href="https://jsbin.com/zanukun/edit?html,output" target="_blank">example</a> of dealing with errors.</p>
+                    <p>Tracking the current position is done with watchPosition(onSuccess, onError). It returns an id that can be used with clearWatch(id) to stop tracking.</p>
+                    <p>You can pass a third parameter to the getCurrentPosition and watchPosition methods that can contain one or more options including enableHighAccuracy, maximumAge and timeout.</p>
+                    <p>A sample usage is watchId=navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy:true, maximumAge:30000, timeout:27000});</p>
+                    <p>This <a href="https://jsbin.com/wubuxuz/1/edit?html,css,output" target="_blank">example</a> shows a static google map centered on the longitude and latitude.</p>
+                    <p>This <a href="https://jsbin.com/gijasam/1/edit?html,output" target="_blank">example</a> uses an interactive google map and tries to get an approximate address.</p>
+                    <p>This <a href="https://jsbin.com/qovute/1/edit?html,output" target="_blank">example</a> shows how to autofill form fields using the location.</p>
                     <footer>Written by Michael Smith</footer>
                 </article>
             </section>
